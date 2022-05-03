@@ -30,7 +30,7 @@ app.MapGet("/random", () =>
 {
     var rnd = new Random();
 
-    return rnd.Next(1, 1000);
+    return rnd.Next(1, 10000);
 });
 
 app.Run();
