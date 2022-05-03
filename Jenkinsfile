@@ -8,7 +8,7 @@ pipeline {
         }
         stage("build") {
             steps {
-                sh 'dotnet restore WebApplication.sln'
+                sh 'dotnet restore Test001.sln'
             }
         }
         stage("test") {
