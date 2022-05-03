@@ -9,6 +9,7 @@ pipeline {
         stage("build") {
             steps {
                 sh 'dotnet restore Test001.sln'
+                sh 'dotnet build Test001.sln --configuration Release --no-restore'
             }
         }
         stage("test") {
