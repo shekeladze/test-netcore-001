@@ -8,7 +8,7 @@ pipeline {
         }
         stage("build") {
             steps {
-                echo 'building the application...'
+                sh 'dotnet restore WebApplication.sln'
             }
         }
         stage("test") {
