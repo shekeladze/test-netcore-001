@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        dockerImage = ''
-    }
-
     stages {
         stage("Get Source Code") {
             steps {
@@ -13,8 +9,9 @@ pipeline {
         }
         stage("Build Docker Image") {
             steps {
-                script {
-                    dockerImage = docker.build registry
+                echo 'building docker image...'
+                dir ('Test001.Api') {
+                    sh 'docker build . '
                 }
             }
         }
