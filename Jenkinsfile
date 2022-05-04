@@ -6,9 +6,9 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-private-key', url: 'git@github.com:shekeladze/test-netcore-001.git']]])
             }
         }
-        stage("build") {
+        stage("Build Docker Image") {
             steps {
-                echo 'building the application...'
+                echo 'building the application 123...'
             }
         }
         stage("test") {
