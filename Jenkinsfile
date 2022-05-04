@@ -1,15 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage("init") {
+        stage("Get Source Code") {
             steps {
-                echo 'initializing the application...'
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-private-key', url: 'git@github.com:shekeladze/test-netcore-001.git']]])
             }
         }
         stage("build") {
             steps {
-                sh 'dotnet restore Test001.sln'
-                sh 'dotnet build Test001.sln --configuration Release --no-restore'
+                
             }
         }
         stage("test") {
